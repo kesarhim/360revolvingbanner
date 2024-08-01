@@ -1,2 +1,2 @@
-# 360revolvingbanner
-Create 360 degree revolving banner using plain HTML and CSS only.
+# 3603Drevolvingbanner
+Create 360 degree 3D revolving banner using plain HTML and CSS only.
