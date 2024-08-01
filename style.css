@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    background-image: linear-gradient(to top, #09203f 50%, #010306 100%);
+}
+.banner360 {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.banner360 .slider360 {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: runSlider 20s linear infinite;
+    z-index: 2;
+}
+
+.banner360 .slider360 .element {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: rotateY( calc( (var(--position) - 1)  * (360 / var(--totalElements)) * 1deg) )
+               translateZ(550px);
+
+}
+
+.banner360 .slider360 .element img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner360 .content {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px,100vw);
+    height:  max-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 100px;
+    align-items: center;
+}
+
+
+.banner360 .content h1 {
+    font-family: 'Roboto';
+    font-size: 10em;
+    line-height: 1em;
+    color: #a8acc5;
+    position: relative;
+}
+
+.banner360 .content h1 ::after {
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
+}
+
+.banner360 .content .author {
+    color: #a8acc5;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: right;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner360 .content .model {
+    background-image: url('./assets/images/slide6.jpg');
+    width: 100%;
+    height: 75vh;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+    z-index: 0;
+}
+
+@keyframes runSlider {
+    from {
+       transform: perspective(1000px) rotateX(-5deg) rotateY(0deg);
+    }
+    to{
+        transform: perspective(1000px) rotateX(-5deg) rotateY(360deg);
+    }
+}
